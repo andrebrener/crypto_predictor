@@ -1,0 +1,7 @@
+pandas
+numpy
+scipy
+sklearn
+bs4
+jinja2
+pytrends
