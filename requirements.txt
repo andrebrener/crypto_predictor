@@ -5,3 +5,4 @@ sklearn
 bs4
 jinja2
 pytrends
+google-api-python-client
