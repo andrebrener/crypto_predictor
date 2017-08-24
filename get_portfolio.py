@@ -114,11 +114,10 @@ def get_positions(spreadsheet_link, range_name):
 
 if __name__ == '__main__':
     logging.config.dictConfig(config['logger'])
+    
+    from google_credentials import POSITION_SHEET_LINK, RANGE_NAME
 
-    spreadsheet_link = 'https://docs.google.com/spreadsheets/d/18W9HpecHjPunoXF5LGdiDqaR--5_zKzmDQNM6wIaoEI/edit#gid=0'
-    range_name = 'Trades!J3:k'
-
-    df, btc_position = get_positions(spreadsheet_link, range_name)
+    df, btc_position = get_positions(POSITION_SHEET_LINK, RANGE_NAME)
 
     print(df.dtypes)
 
