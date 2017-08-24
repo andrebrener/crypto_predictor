@@ -2,7 +2,7 @@
 
 Crypto Prices is an application that uses Machine Learning models to predict cryptocurrency prices in BTC.
 
-By running the code, it will automatically extract, predict and send mail with the final recommendations.
+By running the code, it will automatically extract, predict and send mail with the final recommendations like this one:
 
 ![img](http://i.imgur.com/oRPiRW9.png)
 
