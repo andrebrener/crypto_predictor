@@ -19,7 +19,7 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 
 from config import PROJECT_DIR
-from constants import COIN_NAMES_DF, MAIL_SUBJECT, MAIL_SENDER, MAIL_ADDRESS, MAIL_NAME, MAIL_SIGNATURE
+from constants import COIN_NAMES_DF, MAIL_SUBJECT, MAIL_SENDER, MAIL_ADDRESS, MAIL_NAME, MAIL_SIGNATURE, MAIL_RESPONSE_ADDRESS
 from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
 
 logger = logging.getLogger('main_logger.' + __name__)
@@ -27,15 +27,18 @@ logger = logging.getLogger('main_logger.' + __name__)
 
 class User:
 
-    def __init__(self, name, email, templates):
+    def __init__(self, name, email, signature, suggest_mail, templates):
         self.name = name
         self.email = email
+        self.signature = signature
+        self.suggest_mail = suggest_mail
         self.coins = []
         self.user_template = templates['mail_body.html']
 
     def render(self):
         return self.user_template.render(
-            name=get_only_name(self.name), coins=self.coins)
+            name=get_only_name(self.name), coins=self.coins,
+            signature=self.signature, suggest_mail=self.suggest_mail)
 
 
 class Coin:
@@ -148,10 +151,13 @@ def send_recommendations_mail(df, templates):
     df['action_amount'] = df.apply(get_action_amount, axis=1)
     df['user'] = MAIL_NAME
     df['usr_email'] = MAIL_ADDRESS
+    df['signature'] = MAIL_SIGNATURE
+    df['suggest_mail'] = MAIL_RESPONSE_ADDRESS
+
 
     df = pd.merge(df, COIN_NAMES_DF)
 
-    usrs = get_object_list(User, df, 'user', ['usr_email'], templates)
+    usrs = get_object_list(User, df, 'user', ['usr_email'], 'signature', 'suggest_mail', templates)
 
     for usr in usrs:
         usr_df = df[df['user'] == usr.name]
