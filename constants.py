@@ -6,6 +6,7 @@
 #   Description: description
 # =============================================================================
 import pandas as pd
+from datetime import date
 
 from get_portfolio import get_positions
 from get_coin_names import get_names
@@ -36,6 +37,12 @@ PRICE_PERIODS = 7
 COIN_DATA_DAYS = 500
 FEE_PERC = 0.1
 TOP_COINS = 10
+
+MAIL_NAME = 'Andre Brener'
+MAIL_ADDRESS = 'brener.andre@gmail.com'
+MAIL_SENDER = 'Andre Finance <crypto@andre.com>'
+MAIL_SUBJECT = 'Cryptocurrency Recommendations - {}'.format(date.today())
+MAIL_RESPONSE_ADDRESS = 'brener.andre@gmail.com'
 
 COIN_DATA_DF, BTC_AVAILABLE = get_positions(POSITION_SHEET_LINK, RANGE_NAME)
 
