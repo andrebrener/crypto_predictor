@@ -19,7 +19,7 @@ Go in the directory of the repo and run:
 
 ### 3. Insert Constants
 In [constants.py](https://github.com/andrebrener/crypto_predictor/blob/master/constants.py) you can define:
-- BTC_GRADIENT_DAYS: The number of days from today that will consider the change in btc price. This is a feature for the model.
+- `BTC_GRADIENT_DAYS`: The number of days from today that will consider the change in btc price. This is a feature for the model.
 - The parameters for each of the technical analysis used for features of the model.
 - The parameters for the trial and error to finally pick the best model.
 - `MAX_BTC_BUY`: The maximum amount of btc to buy an altcoin.
