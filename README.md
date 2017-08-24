@@ -34,12 +34,12 @@ In [constants.py](https://github.com/andrebrener/crypto_predictor/blob/master/co
 - MAIL_SUBJECT: Email subject.
 - MAIL_SIGNATURE: Email name signature.
 - MAIL_RESPONSE_ADDRESS: Email to receive doubts or suggestions.
-- SPREADSHEET_LINK: Link of the google spreadsheet that you have your portfolio.
-- RANGE_NAME: Name of the tab and range where your portfolio is in the spreadsheet.
 
 ### 4. Insert Google Credentials
 You will need credentials for google drive, gmail and google trends. For this you have to:
-- Create a file in the repo called `google_credentials.py` where you name the variables `GOOGLE_PASS` and `GOOGLE_USERNAME`.
+- Create a file in the repo called `google_credentials.py` where you name the variables `GOOGLE_PASS` and `GOOGLE_USERNAME`. In this file you will also have to define:
+  - SPREADSHEET_LINK: Link of the google spreadsheet that you have your portfolio.
+  - RANGE_NAME: Name of the tab and range where your portfolio is in the spreadsheet.
 - Generate credentials for [Google Spreadsheet](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com&pli=1) and save the file called `client_secret.json` in the repo directory.
 
 ### 5. Run models
