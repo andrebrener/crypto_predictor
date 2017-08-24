@@ -114,7 +114,7 @@ def get_positions(spreadsheet_link, range_name):
 
 if __name__ == '__main__':
     logging.config.dictConfig(config['logger'])
-    
+
     from google_credentials import POSITION_SHEET_LINK, RANGE_NAME
 
     df, btc_position = get_positions(POSITION_SHEET_LINK, RANGE_NAME)

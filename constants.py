@@ -5,8 +5,9 @@
 # Last Modified: 22 Aug 2017
 #   Description: description
 # =============================================================================
-import pandas as pd
 from datetime import date
+
+import pandas as pd
 
 from get_portfolio import get_positions
 from get_coin_names import get_names

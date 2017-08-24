@@ -2,7 +2,7 @@
 #          File: mails.py
 #        Author: Andre Brener
 #       Created: 13 Jun 2017
-# Last Modified: 18 Jun 2017
+# Last Modified: 24 Aug 2017
 #   Description: description
 # =============================================================================
 import os
@@ -10,7 +10,6 @@ import logging
 import smtplib
 
 from time import sleep
-from datetime import date
 from email.utils import COMMASPACE
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -19,7 +18,9 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 
 from config import PROJECT_DIR
-from constants import COIN_NAMES_DF, MAIL_SUBJECT, MAIL_SENDER, MAIL_ADDRESS, MAIL_NAME, MAIL_SIGNATURE, MAIL_RESPONSE_ADDRESS
+from constants import (COIN_NAMES_DF, MAIL_ADDRESS, MAIL_NAME,
+                       MAIL_RESPONSE_ADDRESS, MAIL_SENDER, MAIL_SIGNATURE,
+                       MAIL_SUBJECT)
 from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
 
 logger = logging.getLogger('main_logger.' + __name__)
@@ -37,8 +38,10 @@ class User:
 
     def render(self):
         return self.user_template.render(
-            name=get_only_name(self.name), coins=self.coins,
-            signature=self.signature, suggest_mail=self.suggest_mail)
+            name=get_only_name(self.name),
+            coins=self.coins,
+            signature=self.signature,
+            suggest_mail=self.suggest_mail)
 
 
 class Coin:
@@ -154,10 +157,10 @@ def send_recommendations_mail(df, templates):
     df['signature'] = MAIL_SIGNATURE
     df['suggest_mail'] = MAIL_RESPONSE_ADDRESS
 
-
     df = pd.merge(df, COIN_NAMES_DF)
 
-    usrs = get_object_list(User, df, 'user', ['usr_email'], 'signature', 'suggest_mail', templates)
+    usrs = get_object_list(User, df, 'user', ['usr_email'], 'signature',
+                           'suggest_mail', templates)
 
     for usr in usrs:
         usr_df = df[df['user'] == usr.name]
