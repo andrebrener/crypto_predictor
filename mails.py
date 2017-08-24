@@ -19,7 +19,7 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 
 from config import PROJECT_DIR
-from constants import COIN_NAMES_DF
+from constants import COIN_NAMES_DF, MAIL_SUBJECT, MAIL_SENDER, MAIL_ADDRESS, MAIL_NAME, MAIL_SIGNATURE
 from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
 
 logger = logging.getLogger('main_logger.' + __name__)
@@ -88,7 +88,7 @@ def get_action_amount(df):
 
 def prepare_mail(user, templates):
     mail_to = user.email
-    mail_subject = 'Cryptocurrency Recommendations - {}'.format(date.today())
+    mail_subject = MAIL_SUBJECT
     mail_body = user.render()
     return mail_to, mail_subject, mail_body
 
@@ -101,7 +101,7 @@ def send_mail(current_dir, send_to, subject, mail_body, files=None):
         user_address = os.environ.get('SES_ACCESS_KEY_ID', None)
         password = os.environ.get('SES_SECRET_ACCESS_KEY', None)
 
-    from_address = 'Andre Finance <crypto@andre.com>'
+    from_address = MAIL_SENDER
     msg = MIMEMultipart()
     msg['From'] = from_address
     msg['To'] = COMMASPACE.join(send_to)
@@ -146,8 +146,8 @@ def send_recommendations_mail(df, templates):
     df['action_type'] = df['coin_action'].apply(get_action_type)
     df['action_currency'] = df.apply(get_currency, axis=1)
     df['action_amount'] = df.apply(get_action_amount, axis=1)
-    df['user'] = 'Andre Brener'
-    df['usr_email'] = 'brener.andre@gmail.com'
+    df['user'] = MAIL_NAME
+    df['usr_email'] = MAIL_ADDRESS
 
     df = pd.merge(df, COIN_NAMES_DF)
 
