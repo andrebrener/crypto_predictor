@@ -45,4 +45,4 @@ You will need credentials for google drive, gmail and google trends. For this yo
 ### 5. Get Recommendations
 - Run [get_market_cap.py](https://github.com/andrebrener/crypto_predictor/blob/master/get_market_cap.py) to get the historical weekly market caps.
 - Run [main.py](https://github.com/andrebrener/crypto_predictor/blob/master/main.py).
-- When the script finishes, if there are recommendations you will receive an email to the address in constants. There will be no email if there are no recommendations. You can check the log in the console or in the log file created. 
+- When the script finishes, if there are recommendations you will receive an email to the address defined in constants. There will be no email if there are no recommendations. You can check the script log in the console or in the log file created. 
