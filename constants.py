@@ -2,7 +2,7 @@
 #          File: constants.py
 #        Author: Andre Brener
 #       Created: 12 Jun 2017
-# Last Modified: 22 Aug 2017
+# Last Modified: 25 Aug 2017
 #   Description: description
 # =============================================================================
 from datetime import date
@@ -44,6 +44,7 @@ MAIL_ADDRESS = 'brener.andre@gmail.com'
 MAIL_SENDER = 'Andre Finance <crypto@andre.com>'
 MAIL_SUBJECT = 'Cryptocurrency Recommendations - {}'.format(date.today())
 MAIL_RESPONSE_ADDRESS = 'brener.andre@gmail.com'
+MAIL_SIGNATURE = 'Andre Brener'
 
 COIN_DATA_DF, BTC_AVAILABLE = get_positions(POSITION_SHEET_LINK, RANGE_NAME)
 
