@@ -1,6 +1,6 @@
 # Crypto Predictor
 
-Crypto Predictor is an application that generates financial recommendations for cryptocurrencies by using Machine Learning models to predict cryptocurrency prices.
+Crypto Predictor is an application that predicts cryptocurrency price changes and provides financial recommendations using Machine Learning models.
 
 This prediction does not take BTC into account, and the price of the other coins is measured in BTC.
 
