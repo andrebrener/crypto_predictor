@@ -1,10 +1,10 @@
 # Crypto Predictor
 
-Crypto Predictor is an application that predicts cryptocurrency price changes and provides financial recommendations using Machine Learning models.
+Crypto Predictor is an application that generates financial recommendations for cryptocurrencies using Machine Learning models to predict cryptocurrency prices.
 
-This prediction does not take BTC into account, and the price of the other coins is measured in BTC.
+This prediction does not take BTC into account, and the price of the other coins is measured in BTC. This is done to avoid BTC price volatility.
 
-By running the code, it will automatically extract, predict and send mail with the final recommendations like this one:
+By running the code, the application will automatically extract, predict and send email with the final recommendations. See example:
 
 ![img](http://i.imgur.com/oRPiRW9.png)
 
@@ -48,4 +48,10 @@ You will need credentials for google drive, gmail and google trends. For this yo
 - Run [get_market_cap.py](https://github.com/andrebrener/crypto_predictor/blob/master/get_market_cap.py) to get the historical weekly market caps.
 - To see if the model works, first run [backtest.py](https://github.com/andrebrener/crypto_predictor/blob/master/backtest.py) and check if the recommendations would have been successful in the past.
 - Run [main.py](https://github.com/andrebrener/crypto_predictor/blob/master/main.py).
-- When the script finishes, if there are recommendations you will receive an email to the address defined in constants. There will be no email if there are no recommendations. You can check the script log in the console or in the log file created. 
+- When the script finishes, if there are recommendations you will receive an email to the address defined in constants. There will be no email if there are no recommendations. You can check the script log in the console or in the log file created.
+
+## Disclaimer
+
+This application was created for information purposes and is not a sure-fire profit machine. I'm not responsable of what the application recommends, so please use it at your own risk.
+
+The Crypto market is very volatile and still in development, meaning that both the market and the application may fail at any time.
