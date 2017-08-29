@@ -52,6 +52,6 @@ You will need credentials for google drive, gmail and google trends. For this yo
 
 ## Disclaimer
 
-This application was created for information purposes and is not a sure-fire profit machine. I'm not responsable of what the application recommends, so please use it at your own risk.
+This application was created for informational purposes only and is not a sure-fire profit machine. I am in no way responsable for what the application recommends, so please use it at your own risk.
 
 The Crypto market is very volatile and still in development, meaning that both the market and the application may fail at any time.
