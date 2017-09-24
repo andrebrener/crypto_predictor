@@ -2,7 +2,7 @@
 #          File: model.py
 #        Author: Andre Brener
 #       Created: 07 Jun 2017
-# Last Modified: 18 Jun 2017
+# Last Modified: 23 Sep 2017
 #   Description: description
 # =============================================================================
 import pandas as pd
@@ -15,7 +15,7 @@ from google_trends import get_trend_df
 from bollinger_bands import get_bollinger_decision
 from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
 from sklearn.grid_search import GridSearchCV
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 
 
 def clean_df(df, tech_analysis):

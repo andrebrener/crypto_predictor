@@ -10,7 +10,7 @@ from datetime import date
 import pandas as pd
 
 from get_portfolio import get_positions
-from get_coin_names import get_names
+from get_coin_names import get_coin_info
 from google_credentials import POSITION_SHEET_LINK, RANGE_NAME
 from sklearn.linear_model import LinearRegression
 
@@ -52,7 +52,8 @@ COIN_MK_CAPS = pd.read_csv('data/historical_market_caps_btc.csv')
 COIN_MK_CAPS['date'] = pd.to_datetime(COIN_MK_CAPS['date'])
 
 NAMES_URL = 'https://coinmarketcap.com/all/views/all/'
-COIN_NAMES_DF = get_names(NAMES_URL)
+LOGOS_URL = 'https://coinranking.com/'
+COIN_NAMES_DF = get_coin_info(NAMES_URL, LOGOS_URL)
 COIN_NAMES_HEAD = COIN_NAMES_DF.head(TOP_COINS)
 
 COIN_DATA_TEMP = pd.merge(COIN_DATA_DF, COIN_NAMES_DF, how='left').fillna(0)
@@ -60,4 +61,7 @@ COIN_DATA_DF = pd.concat([
     COIN_DATA_TEMP, COIN_NAMES_HEAD
 ]).drop_duplicates().fillna(0).groupby('coin').max().reset_index()
 
-# print(COIN_DATA_DF)
+
+print(COIN_DATA_DF)
+
+print(COIN_DATA_DF[COIN_DATA_DF['logo'] == 0])
