@@ -2,7 +2,7 @@
 #          File: mails.py
 #        Author: Andre Brener
 #       Created: 13 Jun 2017
-# Last Modified: 24 Aug 2017
+# Last Modified: 23 Sep 2017
 #   Description: description
 # =============================================================================
 import os
@@ -159,8 +159,9 @@ def send_recommendations_mail(df, templates):
 
     df = pd.merge(df, COIN_NAMES_DF)
 
-    usrs = get_object_list(User, df, 'user', ['usr_email'], 'signature',
-                           'suggest_mail', templates)
+    usrs = get_object_list(User, df, 'user',
+                           ['usr_email', 'signature',
+                            'suggest_mail'], templates)
 
     for usr in usrs:
         usr_df = df[df['user'] == usr.name]

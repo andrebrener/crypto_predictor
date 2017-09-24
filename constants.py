@@ -2,7 +2,7 @@
 #          File: constants.py
 #        Author: Andre Brener
 #       Created: 12 Jun 2017
-# Last Modified: 25 Aug 2017
+# Last Modified: 23 Sep 2017
 #   Description: description
 # =============================================================================
 from datetime import date
@@ -61,7 +61,4 @@ COIN_DATA_DF = pd.concat([
     COIN_DATA_TEMP, COIN_NAMES_HEAD
 ]).drop_duplicates().fillna(0).groupby('coin').max().reset_index()
 
-
-print(COIN_DATA_DF)
-
-print(COIN_DATA_DF[COIN_DATA_DF['logo'] == 0])
+# print(COIN_DATA_DF)

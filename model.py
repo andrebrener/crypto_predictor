@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split
 
 
 def clean_df(df, tech_analysis):
-    clean_df = df[['date', 'price', 'signal']]
+    clean_df = df[['date', 'price', 'signal']].copy()
     col_name = '{}_signal'.format(tech_analysis)
     clean_df.columns = ['date', 'price', col_name]
     clean_df['date'] = pd.to_datetime(clean_df['date'])
@@ -50,7 +50,7 @@ def get_coin_decision(df):
 
 def get_dataset_df(df, backtest=True):
 
-    btc_price_df = df[['date', 'BTC']]
+    btc_price_df = df[['date', 'BTC']].copy()
     btc_price_df['date'] = pd.to_datetime(btc_price_df['date'])
     btc_price_df['btc_rolling_mean'] = btc_price_df['BTC'].ewm(span=10).mean()
     btc_price_df['btc_gradient'] = (

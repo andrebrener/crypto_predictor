@@ -50,7 +50,7 @@ def get_logos(url):
     ]
 
     logos_df = pd.DataFrame()
-    logos_df['logo'] = coin_logos
+    logos_df['coin_logo'] = coin_logos
     logos_df['coin_name'] = coin_names
     logos_df['coin_name'] = logos_df['coin_name'].str.lower()
 
