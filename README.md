@@ -43,6 +43,7 @@ You will need credentials for google drive, gmail and google trends. For this yo
   - `SPREADSHEET_LINK`: Link of the google spreadsheet that you have your portfolio.
   - `RANGE_NAME`: Name of the tab and range where your portfolio is in the spreadsheet.
 - Generate credentials for [Google Spreadsheet](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com&pli=1) and save the file called `client_secret.json` in the repo directory.
+- Enable gmail access to non secure apps. For more info read this [tutorial](https://support.google.com/cloudidentity/answer/6260879?hl=en)
 
 ### 5. Get Recommendations
 - Run [get_market_cap.py](https://github.com/andrebrener/crypto_predictor/blob/master/get_market_cap.py) to get the historical weekly market caps.
