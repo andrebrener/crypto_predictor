@@ -47,10 +47,12 @@ You will need credentials for google drive, gmail and google trends. For this yo
 - Generate credentials for [Google Spreadsheet](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com&pli=1) and save the file called `client_secret.json` in the repo directory.
 - Enable gmail access to non secure apps. For more info read this [tutorial](https://support.google.com/cloudidentity/answer/6260879?hl=en)
 
+> **Note:** the modules are organized into packages — `data/` (fetchers), `indicators/` (technical analysis), `mailer/` (email). Run the commands below **from the repo root** so the imports resolve.
+
 ### 5. Get Recommendations
-- Run [get_market_cap.py](https://github.com/andrebrener/crypto_predictor/blob/master/get_market_cap.py) to get the historical weekly market caps.
-- To see if the model works, first run [backtest.py](https://github.com/andrebrener/crypto_predictor/blob/master/backtest.py) and check if the recommendations would have been successful in the past.
-- Run [main.py](https://github.com/andrebrener/crypto_predictor/blob/master/main.py).
+- Run `python -m data.get_market_cap` to get the historical weekly market caps.
+- To see if the model works, first run `python backtest.py` and check if the recommendations would have been successful in the past.
+- Run `python main.py`.
 - When the script finishes, if there are recommendations you will receive an email to the address defined in constants. There will be no email if there are no recommendations. You can check the script log in the console or in the log file created.
 
 ## Disclaimer

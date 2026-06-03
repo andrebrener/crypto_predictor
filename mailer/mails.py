@@ -182,9 +182,9 @@ def send_recommendations_mail(df, templates):
 
 
 if __name__ == '__main__':
-    from jinja_customs import load_templates
+    from mailer.jinja_customs import load_templates
 
-    templates_dir = PROJECT_DIR + '/mail_templates'
+    templates_dir = PROJECT_DIR + '/mailer/mail_templates'
 
     templates = load_templates(templates_dir)
 

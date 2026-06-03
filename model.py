@@ -7,12 +7,12 @@
 # =============================================================================
 import pandas as pd
 
-from rsi import get_rsi_decision
+from indicators.rsi import get_rsi_decision
 from constants import (BTC_GRADIENT_DAYS, COIN_MK_CAPS, COIN_NAMES_DF, MODELS,
                        PRICE_PERIODS, TECHNICAL_ANALYSIS)
-from rolling_mean import get_macd_decision, get_roll_mean_decision
-from google_trends import get_trend_df
-from bollinger_bands import get_bollinger_decision
+from indicators.rolling_mean import get_macd_decision, get_roll_mean_decision
+from data.google_trends import get_trend_df
+from indicators.bollinger_bands import get_bollinger_decision
 from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
 from sklearn.model_selection import GridSearchCV, train_test_split
 

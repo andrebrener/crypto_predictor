@@ -11,7 +11,7 @@ import pandas as pd
 
 from main import get_coin_decisions, get_daily_recommendations
 from constants import BTC_AVAILABLE, COIN_DATA_DF, PRICE_PERIODS
-from get_coin_data import get_price_history
+from data.get_coin_data import get_price_history
 
 
 def get_final_coin_position(total_decisions_df, total_prices_df):

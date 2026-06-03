@@ -9,8 +9,8 @@ from datetime import date
 
 import pandas as pd
 
-from get_portfolio import get_positions
-from get_coin_names import get_coin_info
+from data.get_portfolio import get_positions
+from data.get_coin_names import get_coin_info
 from google_credentials import POSITION_SHEET_LINK, RANGE_NAME
 from sklearn.linear_model import LinearRegression
 

@@ -13,13 +13,13 @@ from datetime import date, timedelta
 
 import pandas as pd
 
-from mails import send_recommendations_mail
+from mailer.mails import send_recommendations_mail
 from model import get_dataset, get_dataset_df, get_model
 from config import config, PROJECT_DIR
 from constants import (BTC_AVAILABLE, COIN_DATA_DF, FEE_PERC, MAX_BTC_BUY,
                        MAX_SELL_PERCENTAGE, MIN_EARNINGS)
-from get_coin_data import get_price_history
-from jinja_customs import load_templates
+from data.get_coin_data import get_price_history
+from mailer.jinja_customs import load_templates
 
 os.chdir(PROJECT_DIR)
 
@@ -166,7 +166,7 @@ def main():
     total_df, new_coin_data_df, new_btc_available = get_daily_recommendations(
         COIN_DATA_DF, day_decision_df, day_price_df, BTC_AVAILABLE)
 
-    templates_dir = PROJECT_DIR + '/mail_templates'
+    templates_dir = PROJECT_DIR + '/mailer/mail_templates'
 
     templates = load_templates(templates_dir)
 
