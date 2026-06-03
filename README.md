@@ -1,5 +1,7 @@
 # Crypto Predictor
 
+> **Status (2026): archival.** This project was built in 2017–2018. The ML pipeline and technical-analysis features are intact and the code runs on a modern Python 3 / scikit-learn install, but the **data sources have since changed** — the CoinMarketCap scrapers (`get_market_cap.py`, `get_coin_names.py`) target a 2018 site layout that no longer exists, and the Gmail "less secure apps" auth used for mail/trends was disabled by Google in 2022. To run it today you'd need to migrate the data layer to the [CoinGecko API](https://www.coingecko.com/en/api) (`/coins/markets` for caps + names, `/coins/{id}/market_chart` for history) and switch mail auth to a Gmail App Password or OAuth. Kept here as a reference implementation.
+
 Crypto Predictor is an application that generates financial recommendations for cryptocurrencies using Machine Learning models to predict cryptocurrency prices.
 
 This prediction does not take BTC into account, and the price of the other coins is measured in BTC. This is done to avoid BTC price volatility.
@@ -53,6 +55,6 @@ You will need credentials for google drive, gmail and google trends. For this yo
 
 ## Disclaimer
 
-This application was created for informational purposes only and is not a sure-fire profit machine. I am in no way responsable for what the application recommends, so please use it at your own risk.
+This application was created for informational purposes only and is not a sure-fire profit machine. I am in no way responsible for what the application recommends, so please use it at your own risk.
 
 The Crypto market is very volatile and still in development, meaning that both the market and the application may fail at any time.

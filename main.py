@@ -179,10 +179,4 @@ def main():
 
 if __name__ == '__main__':
     logging.config.dictConfig(config['logger'])
-
-    # df = pd.read_csv('historical_data.csv')
-
-    # total_decisions_df = pd.read_csv('backtest_decisions.csv')
-    # total_prices_df = pd.read_csv('backtest_prices.csv')
-
     main()
