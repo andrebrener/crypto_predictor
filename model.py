@@ -7,15 +7,14 @@
 # =============================================================================
 import pandas as pd
 
-from rsi import get_rsi_decision
+from indicators.rsi import get_rsi_decision
 from constants import (BTC_GRADIENT_DAYS, COIN_MK_CAPS, COIN_NAMES_DF, MODELS,
                        PRICE_PERIODS, TECHNICAL_ANALYSIS)
-from rolling_mean import get_macd_decision, get_roll_mean_decision
-from google_trends import get_trend_df
-from bollinger_bands import get_bollinger_decision
+from indicators.rolling_mean import get_macd_decision, get_roll_mean_decision
+from data.google_trends import get_trend_df
+from indicators.bollinger_bands import get_bollinger_decision
 from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
-from sklearn.grid_search import GridSearchCV
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV, train_test_split
 
 
 def clean_df(df, tech_analysis):
@@ -117,8 +116,6 @@ def get_dataset_df(df, backtest=True):
         result_coin_df = result_coin_df.head(result_coin_df.shape[0] -
                                              backtest_columns)
 
-        # backtest_df['target_decision'] = backtest_df['price_change'].apply(
-        # rules_definitions)
         backtest_df['target_decision'] = backtest_df['price_change']
         backtests[col] = backtest_df
 
@@ -143,7 +140,6 @@ def get_dataset(final_df):
 def get_best_model(model, parameters, X_train, y_train):
     clf = GridSearchCV(model, parameters, cv=4, n_jobs=-1)
     clf.fit(X_train, y_train)
-    # print(clf.best_params_)
     return clf.best_estimator_
 
 
@@ -158,24 +154,18 @@ def get_model(df):
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.25, random_state=0)
 
-    l = []
+    trained_models = []
 
     for model in MODELS:
-        # print('\nTraining Model', model)
         (clf, parameters) = MODELS[model]
-        l.append((model, get_best_model(clf, parameters, X_train, y_train)))
+        trained_models.append(
+            (model, get_best_model(clf, parameters, X_train, y_train)))
 
-    return l[0]
+    return trained_models[0]
 
 
 if __name__ == '__main__':
 
     df = pd.read_csv('example_data/historical_data.csv')
-
-    logistic_params = {
-        'C': [0.5, 1.0, 5, 10, 100, 500, 1000],
-        'penalty': ['l1', 'l2'],
-        'class_weight': ['balanced', None]
-    }
 
     get_model(df)

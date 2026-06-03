@@ -1,0 +1,25 @@
+# Secrets / credentials (required locally, never commit)
+google_credentials.py
+client_secret.json
+*.json
+!mail_templates/*.json
+
+# Generated data / logs
+*.csv
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

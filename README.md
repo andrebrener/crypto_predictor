@@ -1,5 +1,7 @@
 # Crypto Predictor
 
+> **Status (2026): archival.** This project was built in 2017–2018. The ML pipeline and technical-analysis features are intact and the code runs on a modern Python 3 / scikit-learn install, but the **data sources have since changed** — the CoinMarketCap scrapers (`get_market_cap.py`, `get_coin_names.py`) target a 2018 site layout that no longer exists, and the Gmail "less secure apps" auth used for mail/trends was disabled by Google in 2022. To run it today you'd need to migrate the data layer to the [CoinGecko API](https://www.coingecko.com/en/api) (`/coins/markets` for caps + names, `/coins/{id}/market_chart` for history) and switch mail auth to a Gmail App Password or OAuth. Kept here as a reference implementation.
+
 Crypto Predictor is an application that generates financial recommendations for cryptocurrencies using Machine Learning models to predict cryptocurrency prices.
 
 This prediction does not take BTC into account, and the price of the other coins is measured in BTC. This is done to avoid BTC price volatility.
@@ -45,14 +47,16 @@ You will need credentials for google drive, gmail and google trends. For this yo
 - Generate credentials for [Google Spreadsheet](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com&pli=1) and save the file called `client_secret.json` in the repo directory.
 - Enable gmail access to non secure apps. For more info read this [tutorial](https://support.google.com/cloudidentity/answer/6260879?hl=en)
 
+> **Note:** the modules are organized into packages — `data/` (fetchers), `indicators/` (technical analysis), `mailer/` (email). Run the commands below **from the repo root** so the imports resolve.
+
 ### 5. Get Recommendations
-- Run [get_market_cap.py](https://github.com/andrebrener/crypto_predictor/blob/master/get_market_cap.py) to get the historical weekly market caps.
-- To see if the model works, first run [backtest.py](https://github.com/andrebrener/crypto_predictor/blob/master/backtest.py) and check if the recommendations would have been successful in the past.
-- Run [main.py](https://github.com/andrebrener/crypto_predictor/blob/master/main.py).
+- Run `python -m data.get_market_cap` to get the historical weekly market caps.
+- To see if the model works, first run `python backtest.py` and check if the recommendations would have been successful in the past.
+- Run `python main.py`.
 - When the script finishes, if there are recommendations you will receive an email to the address defined in constants. There will be no email if there are no recommendations. You can check the script log in the console or in the log file created.
 
 ## Disclaimer
 
-This application was created for informational purposes only and is not a sure-fire profit machine. I am in no way responsable for what the application recommends, so please use it at your own risk.
+This application was created for informational purposes only and is not a sure-fire profit machine. I am in no way responsible for what the application recommends, so please use it at your own risk.
 
 The Crypto market is very volatile and still in development, meaning that both the market and the application may fail at any time.
